@@ -13,7 +13,15 @@ This specification addresses how tasks should be written in order to be connecte
 
 ### API
 
-This specification defines only one API that a module should be exported.
+This specification only defines one API that a module should be exported：
+
+```js
+task.run([options [, done]])
+```
+
+* `options` should be a object
+* `done` should be a function
+
 
 Within Common.JS modules ecosystem, the entry point module like `main.js` should exports `.run()` method:
 
@@ -27,7 +35,7 @@ exports.run = function(options, done){
 }
 ```
 
-When task is sync, `done` is optional.
+When task is sync, `done` could be optional.
 
 ```js
 // syncTask.js
@@ -37,5 +45,5 @@ exports.run = function(options){
 ```
 
 ### Runner Implementations
-* [Mod.JS](https://github.com/modulejs/modjs) - JavaScript Workflow Tooling For Web Application
+* [Mod.js](https://github.com/modulejs/modjs) - JavaScript Workflow Tooling For Web Application
 
