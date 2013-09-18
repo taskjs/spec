@@ -5,7 +5,7 @@ Task.JS
 
 Task is unit of execution. In the javascript world, there have existing hundreds of tasks that we can use, 
 like `jshint`, `csslint`, `uglifyjs`, `jade`, `jasmine`, etc. But they are all unconnected, 
-if we need execute a series of tasks, we should make the adapter for each type task for the task runner. 
+if we need execute a series of tasks, we should make the adapter for each type task within task runner like `grunt`. 
 Then we got some modules named `grunt-jshint`, `grunt-csslint`, `grunt-uglifyjs`, `grunt-jade`, `grunt-jasmine`, etc.
 
 Could we connect these tasks without task adapter? 
