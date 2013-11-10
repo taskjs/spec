@@ -1,7 +1,7 @@
 Task.JS
 ====
 
-> A specification for javascript task API
+> The Simplest JavaScript Task Specification
 
 Task is unit of execution. In the javascript world, there have existing hundreds of tasks that we can use, 
 like `jshint`, `csslint`, `uglifyjs`, `jade`, `jasmine`, etc. But they are all unconnected, 
