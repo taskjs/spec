@@ -1,7 +1,7 @@
 Task.JS
 ====
 
-> The Simplest JavaScript Task Specification
+> JavaScript Task Specification
 
 Task is unit of execution. In the javascript world, there have existing hundreds of tasks that we can use, 
 like `jshint`, `csslint`, `uglifyjs`, `jade`, `jasmine`, etc. But they are all unconnected, 
@@ -11,39 +11,34 @@ Then we got some modules named `grunt-jshint`, `grunt-csslint`, `grunt-uglifyjs`
 Could we connect these tasks without task adapter? 
 This specification addresses how tasks should be written in order to be connected without adapter that can be both client and server side.
 
-### API
+## 1. Terminology
 
-This specification only defines one API that a module should be exported：
+1. `task` is an object or function with a `run` method whose behavior conforms to this specification.
+2. `thenable` is an object or function that defines a `then` method.
+3. `records` is array of `Record` instances.
+4. `logger` is a `Logging` object.
+
+## 2. Requirements
+
+### 2.1 The `run` Method
+A task must provide a `run` method must returning a `thenable`. A task’s `run` method accepts three arguments, and all arguments are optional:
 
 ```js
-task.run([options [, done]])
+run([records [, options [, logger]]])
 ```
 
-* `options` should be a object
-* `done` should be a function
-
-
-Within Common.JS modules ecosystem, the entry point module like `main.js` should exports `.run()` method:
+Within Common.JS modules ecosystem, the entry point module like `index.js` should exports `run` method:
 
 ```js
-// asyncTask.js
-exports.run = function(options, done){
-  setTimeout(function(){
-    console.log("it's work")
-    done()
-  }, 2013)
+// index.js
+exports.run = function(records, options, logger){
+  return new Promises(function(resolve, reject){
+     logger.log("it's work")
+     resolve(records);
+  })
 }
 ```
 
-When task is sync, `done` could be optional.
-
-```js
-// syncTask.js
-exports.run = function(options){
-  console.log("it's work")
-}
-```
-
-### Runner Implementations
-* [Mod.js](https://github.com/modulejs/modjs) - JavaScript Workflow Tooling For Web Application
+## 3. Runner Implementations
+* [cha](https://github.com/chajs/cha)
 
