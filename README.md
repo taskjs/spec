@@ -27,7 +27,7 @@ Within Common.JS modules ecosystem, the entry point module like `index.js` shoul
 ```js
 // index.js
 exports.run = function(records, options, logger){
-  return new Promises(function(resolve, reject){
+  return new Promise(function(resolve, reject){
      logger.log("it's work")
      resolve(records);
   })
