@@ -4,19 +4,14 @@ Task.JS
 > JavaScript Task Specification
 
 Task is unit of execution. In the javascript world, there have existing hundreds of tasks that we can use, 
-like `jshint`, `csslint`, `uglifyjs`, `jade`, `jasmine`, etc. But they are all unconnected, 
-if we need execute a series of tasks, we should make the adapter for each type task within task runner like `grunt`. 
-Then we got some modules named `grunt-jshint`, `grunt-csslint`, `grunt-uglifyjs`, `grunt-jade`, `grunt-jasmine`, etc.
-
-Could we connect these tasks without task adapter? 
-This specification addresses how tasks should be written in order to be connected without adapter that can be both client and server side.
+like `jshint`, `csslint`, `uglifyjs`, `jade`, `jasmine`, etc. But they are all unconnected, this specification addresses how tasks should be written in order to be connected that can be both client and server side.
 
 ## 1. Terminology
 
 1. `task` is an object or function with a `run` method whose behavior conforms to this specification.
 2. `thenable` is an object or function that defines a `then` method.
-3. `records` is array of `Record` instances.
-4. `logger` is a `Logging` object.
+3. `records` is array of `[Record](https://github.com/node-task/record)` instances.
+4. `logger` is a `Logging` object, default is `console`.
 
 ## 2. Requirements
 
