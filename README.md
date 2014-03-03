@@ -10,7 +10,7 @@ like `jshint`, `csslint`, `uglifyjs`, `jade`, `jasmine`, etc. But they are all u
 
 1. `task` is an object or function with a `run` method whose behavior conforms to this specification.
 2. `thenable` is an object or function that defines a `then` method.
-3. `records` is array of `[Record](https://github.com/node-task/record)` instances.
+3. `records` is array of [Record](https://github.com/node-task/record) instances.
 4. `logger` is a `Logging` object, default is `console`.
 
 ## 2. Requirements
