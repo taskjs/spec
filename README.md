@@ -1,5 +1,5 @@
-Task.JS
-====
+Task/1.0
+========
 
 > JavaScript Task Specification
 
@@ -34,6 +34,5 @@ exports.run = function(records, options, logger){
 }
 ```
 
-## 3. Runner Implementations
-* [cha](https://github.com/chajs/cha)
-
+## 3. Implementations
+ * [Node packages](https://github.com/taskjs/packages)
